@@ -99,10 +99,13 @@ export class MiBand5 {
 
   async measureHr() {
     console.log("Starting heart rate measurement")
+    var exampleSocket = new WebSocket("ws://localhost:8080");
     await this.chars.hrControl.writeValue(Uint8Array.from([0x15, 0x02, 0x00]));
     await this.chars.hrControl.writeValue(Uint8Array.from([0x15, 0x01, 0x00]));
     await this.startNotifications(this.chars.hrMeasure, (e) => {
       console.log("Received heart rate value: ", e.target.value);
+      console.log(e.target.value.getInt16())
+      exampleSocket.send(e.target.value.getInt16());
       const heartRate = e.target.value.getInt16();
       window.dispatchEvent(
         new CustomEvent("heartrate", {

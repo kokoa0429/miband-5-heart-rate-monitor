@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "esbuild --bundle src/index.js --outfile=src/bundle.js",
-    "build": "rm -r dist/*; esbuild --bundle src/index.js --outfile=dist/bundle.js && cp src/index.html src/style.css src/aes.js dist/",
+    "build": "mkdir static;rm -r static/*; esbuild --bundle src/index.js --outfile=static/bundle.js && cp src/index.html src/style.css src/aes.js static/",
     "serve": "npm run watch & cd src; npx http-server",
-    "serve:dist": "npm run build && cd dist; npx http-server",
-    "lint": "prettier --write src/"
+    "serve:dist": "npm run build && cd static; npx http-server",
+    "lint": "prettier --write src"
   },
   "dependencies": {
     "esbuild": "^0.8.43"

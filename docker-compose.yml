@@ -1,0 +1,8 @@
+version : "3.7"
+services:
+  node:
+    build: .
+    init: true
+    restart: always
+    ports:
+      - 8888:8080
