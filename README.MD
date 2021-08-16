@@ -5,8 +5,8 @@ https://github.com/argrento/huami-token
 
 ## 使い方
 ### 立ち上げ方
-```docker-compose up -d```
-
+```docker-compose up -d```  
+ブラウザで ```http://localhost:8080```にアクセスして、APIキーを入れてください。
 
 ポートを変える際は
 docker-compose buildの前に、  
