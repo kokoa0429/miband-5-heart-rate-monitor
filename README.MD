@@ -7,6 +7,11 @@ https://github.com/argrento/huami-token
 ### 立ち上げ方
 ```docker-compose up -d```
 
+
 ポートを変える際は
 docker-compose buildの前に、  
 `front/src/miband.js`の102行目あたりのポートを変更してください
+
+
+### WebSocket
+```ws://localhost:8080```にWebSocketを張ってブラウザ側でMiBandとつなげると心拍数が降ってきます。
